@@ -1,0 +1,17 @@
+<button (click)="getAllPrestiti()">Recupera tutti i prestiti</button>
+<h2>Elenco Prestiti</h2>
+
+<ul>
+  <li *ngFor="let prestito of prestiti">
+    <p><b>{{ prestito.libro.titolo }}</b> è stato prestato a <b>{{ prestito.utente.nome +  prestito.utente.cognome}}</b>
+    il giorno <b>{{prestito.prestitoId.timestampPrestitoInizio | date: 'dd/MM/yyyy'}}</b>
+      <ng-container *ngIf="prestito.prestitoId.timestampPrestitoFine; else ancoraInPossesso">
+        fino al giorno <b>{{prestito.prestitoId.timestampPrestitoFine | date: 'dd/MM/yyyy'}}</b>
+      </ng-container>
+      <ng-template #ancoraInPossesso>
+        ed è ancora in possesso del libro.
+      </ng-template>
+
+    </p>
+  </li>
+</ul>

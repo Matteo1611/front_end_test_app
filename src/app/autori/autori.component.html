@@ -1,0 +1,10 @@
+<button (click)="getAllAutori()">Recupera tutti gli autori</button>
+<h2>Elenco Autori</h2>
+
+<ul>
+  <li *ngFor="let autore of autori">
+    <p>Nome: {{ autore.nome }}</p>
+    <p>Cognome: {{ autore.cognome }}</p>
+    <p>Data di nascita: {{ autore.dataNascita | date: 'dd/MM/yyyy' }}</p>
+  </li>
+</ul>

@@ -4,9 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimoComponentComponent } from './primo-component/primo-component.component';
-import { ListaComponentComponent } from './lista-component/lista-component.component';
-import { BibliotecaDataComponent } from './biblioteca-data/biblioteca-data.component';
 import { LibriComponent } from './libri/libri.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -18,9 +15,6 @@ import { PrestitiComponent } from './prestiti/prestiti.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PrimoComponentComponent,
-    ListaComponentComponent,
-    BibliotecaDataComponent,
     LibriComponent,
     HomeComponent,
     AutoriComponent,

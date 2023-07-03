@@ -1,0 +1,15 @@
+<button (click)="getAllLibri()">Recupera tutti i libri</button>
+<h2>Elenco Libri</h2>
+
+<ul>
+  <li *ngFor="let libro of libri">
+    <h3>{{ libro.titolo }}</h3>
+    <p>Categoria: {{ libro.categoria }}</p>
+    <p>Data Pubblicazione: {{ libro.dataPubblicazione | date: 'dd/MM/yyyy' }}</p>
+  </li>
+</ul>
+
+
+<form>
+  <button type="submit" (click)="makePostLibro()">Salva</button>
+</form>
