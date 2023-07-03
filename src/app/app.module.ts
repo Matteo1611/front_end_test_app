@@ -5,16 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimoComponentComponent } from './primo-component/primo-component.component';
 import { ListaComponentComponent } from './lista-component/lista-component.component';
+import { BibliotecaDataComponent } from './biblioteca-data/biblioteca-data.component';
+import { LibriComponent } from './libri/libri.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrimoComponentComponent,
-    ListaComponentComponent
+    ListaComponentComponent,
+    BibliotecaDataComponent,
+    LibriComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
