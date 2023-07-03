@@ -34,6 +34,8 @@ import { PrestitiComponent } from './prestiti/prestiti.component';
           { path: 'home', component: HomeComponent },
           { path: 'autori', component: AutoriComponent },
           { path: 'libri', component: LibriComponent },
+          { path: 'prestiti', component: PrestitiComponent }
+
 
         ])
   ],
