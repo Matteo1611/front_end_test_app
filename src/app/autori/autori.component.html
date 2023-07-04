@@ -8,3 +8,25 @@
     <p>Data di nascita: {{ autore.dataNascita | date: 'dd/MM/yyyy' }}</p>
   </li>
 </ul>
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Ricerca Autore</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="idAutore">ID Autore da cercare</label>
+        <input id="idAutore" type="number" class="form-control" placeholder="Inserisci l'ID dell'autore" [(ngModel)]="idAutore" (ngModelChange)="onIdAutoreChange($event)">
+      </div>
+      <button class="btn btn-primary" (click)="getAutoreById()">Cerca Autore</button>
+      <div *ngIf="autoreRicerca" class="autore">
+        <h3>L'autore con id {{autoreRicerca.id}} è {{ autoreRicerca.cognome }}</h3>
+        <p><strong>Nome:</strong> {{ autoreRicerca.nome }}</p>
+        <p><strong>Cognome:</strong> {{ autoreRicerca.cognome }}</p>
+        <p><strong>Data di nascita:</strong> {{ autoreRicerca.dataNascita | date: 'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

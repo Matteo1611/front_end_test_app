@@ -8,8 +8,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AutoriComponent {
   autori: any[] = [];
+  autoreRicerca: any;
+  idAutore: number = 0;
 
   constructor(private http: HttpClient) { }
+
+  getAutoreById():void{
+    let urlRicerca = 'http://localhost:8080/api/searchAutore?id_ricerca='+this.idAutore;
+    this.http.get<any>(urlRicerca).subscribe(
+      response => {
+        this.autoreRicerca = response;
+        console.log(this.autoreRicerca);
+        
+      }
+    )
+  }
+
+  onIdAutoreChange(event: any) {
+    if (event && event.target && event.target.value != null)
+      this.idAutore = Number(event.target.value);
+    console.log(this.idAutore);
+  }
 
   getAllAutori(): void {
     this.http.get<any[]>('http://localhost:8080/api/autori').subscribe(

@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AutoriComponent } from './autori/autori.component';
 import { PrestitiComponent } from './prestiti/prestiti.component';
-
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,20 +18,23 @@ import { PrestitiComponent } from './prestiti/prestiti.component';
     LibriComponent,
     HomeComponent,
     AutoriComponent,
-    PrestitiComponent
+    PrestitiComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-     RouterModule.forRoot([
-          { path: 'home', component: HomeComponent },
-          { path: 'autori', component: AutoriComponent },
-          { path: 'libri', component: LibriComponent },
-          { path: 'prestiti', component: PrestitiComponent }
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule.forRoot([
+        { path: 'home', component: HomeComponent },
+        { path: 'autori', component: AutoriComponent },
+        { path: 'libri', component: LibriComponent },
+        { path: 'prestiti', component: PrestitiComponent }
 
 
-        ])
+      ])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,3 +13,25 @@
 <form>
   <button type="submit" (click)="makePostLibro()">Salva</button>
 </form>
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Ricerca libro</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="idLibro">ID libro da cercare</label>
+        <input id="idLibro" type="number" class="form-control" placeholder="Inserisci l'ID del libro" [(ngModel)]="idLibro" (ngModelChange)="onIdLibroChange($event)">
+      </div>
+      <button class="btn btn-primary" (click)="getLibroById()">Cerca libro</button>
+      <div *ngIf="libroRicerca" class="libro">
+        <h3>{{ libroRicerca.titolo }}</h3>
+        <p><strong>Autore:</strong> {{ libroRicerca.autore }}</p>
+        <p><strong>Genere:</strong> {{ libroRicerca.categoria }}</p>
+        <p><strong>Anno di pubblicazione:</strong> {{ libroRicerca.dataPubblicazione }}</p>
+      </div>
+    </div>
+  </div>
+</div>

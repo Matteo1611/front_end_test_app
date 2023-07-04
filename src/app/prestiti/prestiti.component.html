@@ -1,3 +1,43 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Ricerca prestito</h2>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="idPrestito">ID prestito da cercare</label>
+        <input id="idUtente" type="number" class="form-control" placeholder="Inserisci l'ID dell'utente" [(ngModel)]="idUtente" (ngModelChange)="onIdUtenteChange($event)">
+        <input id="idLibro" type="number" class="form-control" placeholder="Inserisci l'ID del libro" [(ngModel)]="idLibro" (ngModelChange)="onIdLibroChange($event)">
+        <input id="idTimestamp" type="datetime-local" class="form-control" placeholder="Inserisci la data" [(ngModel)]="timestampinizio" (ngModelChange)="onDateChange($event)">
+      </div>
+      <button class="btn btn-primary" (click)="getPrestitoById()">Cerca prestito</button>
+      <div *ngIf="prestitoRicerca" class="prestito">
+        <h3>{{ prestitoRicerca.idUtente }}</h3>
+        <p><strong>idUtente:</strong> {{ prestitoRicerca.idUtente }}</p>
+        <p><strong>idLibro:</strong> {{ prestitoRicerca.idLibro }}</p>
+        <p><strong>Timestamp:</strong> {{ prestitoRicerca.timestampinizio }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="form-group">
+  <label for="idUtente">ID utente</label>
+  <input id="idUtente" type="number" class="form-control" placeholder="Inserisci l'ID dell'utente" [(ngModel)]="idUtente">
+</div>
+<div class="form-group">
+  <label for="idLibro">ID libro</label>
+  <input id="idLibro" type="number" class="form-control" placeholder="Inserisci l'ID del libro" [(ngModel)]="idLibro">
+</div>
+<div class="form-group">
+  <label for="timestampinizio">Timestamp inizio</label>
+  <input id="timestampinizio" type="datetime-local" class="form-control" placeholder="Inserisci il timestamp di inizio" [(ngModel)]="timestampinizio">
+</div> -->
+<!-- <button class="btn btn-primary" (click)="getPrestitoById()">Cerca prestito</button>
+ -->
+
+
+
 <button (click)="getAllPrestiti()">Recupera tutti i prestiti</button>
 <h2>Elenco Prestiti</h2>
 
@@ -11,7 +51,9 @@
       <ng-template #ancoraInPossesso>
         ed è ancora in possesso del libro.
       </ng-template>
-
     </p>
   </li>
 </ul>
+
+
+

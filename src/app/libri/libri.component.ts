@@ -10,15 +10,40 @@ import { HttpClient } from '@angular/common/http';
 
 export class LibriComponent {
   libri: any[] = [];
+  idLibro: number = 0;
   libro = {
-    idLibro: 10,
     titolo: "Libro1",
     autore: "autoreProva",
     genere: "genere",
     annoPubblicazione: "1304-03-10T00:00:00"
   };
+  libroRicerca = {
+    titolo: "",
+    autore: "",
+    categoria: "",
+    dataPubblicazione: ""
+  };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
+
+  onIdLibroChange(event: any) {
+    if (event && event.target && event.target.value != null)
+      this.idLibro = Number(event.target.value);
+    console.log(this.idLibro);
+  }
+
+
+  getLibroById(): void{
+    let urlRicerca = 'http://localhost:8080/libri/searchLibro?id_ricerca='+this.idLibro;
+    this.http.get<any>(urlRicerca).subscribe(
+      response => {
+        this.libroRicerca = response;
+        console.log(this.libroRicerca);
+        
+      }
+    )
+  }
 
   getAllLibri(): void {
     this.http.get<any[]>('http://localhost:8080/libri/getAll').subscribe(
@@ -32,7 +57,10 @@ export class LibriComponent {
     );
   }
 
-  makePostLibro(libro: any): void{
+
+  
+
+  makePostLibro(): void{
     const url = 'http://localhost:8080/libri/post';
     const dataLibro = {
       titolo: 'Libro1',
@@ -40,7 +68,7 @@ export class LibriComponent {
       genere: 'genere',
       annoPubblicazione: '1304-03-10T00:00:00'
     };
-    this.http.post(url,libro);
+    this.http.post(url,this.libro);
     console.log("Richiesta POST");
 
   }
